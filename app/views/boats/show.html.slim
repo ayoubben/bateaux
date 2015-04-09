@@ -1,0 +1,22 @@
+p
+  strong ID:
+  = @boat.id
+p
+  strong Title:
+  = @boat.title
+p
+  strong Descrition:
+  = @boat.description
+p
+  strong adress:
+  = @boat.adress
+p
+  strong longitude:
+  = @boat.longitude
+p
+  strong latitude:
+  = @boat.latitude
+p
+  Strong photo
+  - if !(@boat.photo_file_name.nil?)
+    = image_tag @boat.photo.url(:medium)

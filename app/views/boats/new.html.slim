@@ -1,0 +1,32 @@
+= form_for :boat,url: boats_path do |f|
+
+  .form-group
+  label for="validate-text"  = f.label :title
+  .input-group
+    = f.text_field :title,class: "form-control"
+    span.input-group-addon.primary
+      span.fa.fa-adn
+
+  .form-group
+  label for="validate-text"  = f.label :description
+  .input-group
+    = f.text_area :description,class: "form-control"
+    span.input-group-addon.primary
+      span.fa.fa-adn
+
+  .form-group
+  label for="validate-text"  = f.label :adress
+  .input-group
+    = f.text_field :adress,class: "form-control"
+    span.input-group-addon.primary
+      span.fa.fa-adn
+
+
+  p
+    = f.label :photo
+    br
+    = f.file_field :photo
+
+  p
+    = f.submit
+

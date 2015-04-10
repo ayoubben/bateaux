@@ -13,6 +13,12 @@ class BoatsController < ApplicationController
 
   def show
     @boat = Boat.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@boat) do |boat, marker|
+      marker.lat boat.latitude
+      marker.lng boat.longitude
+      marker.infowindow boat.description
+      marker.title   boat.title
+    end
   end
 
   def new

@@ -21,12 +21,13 @@
     span.input-group-addon.primary
       span.fa.fa-adn
 
+  .form-group
+  label for="validate-text"  = f.label :photo
+  .input-group
+    = f.file_field :photo,class: "form-control"
 
-  p
-    = f.label :photo
-    br
-    = f.file_field :photo
 
-  p
-    = f.submit
+    
 
+  .form-group
+    = f.submit  'Valider', :class => 'btn btn-success'

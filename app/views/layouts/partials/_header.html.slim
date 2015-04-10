@@ -1,12 +1,17 @@
-header.header
-  a.logo href="index.php"
-    | Boats
-
-  nav.navbar.navbar-static-top role="navigation"
-    /! Sidebar toggle button
-    a.navbar-btn.sidebar-toggle data-toggle="offcanvas" href="#" role="button"
-      span.sr-only Toggle navigation
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
+nav.navbar.navbar-default.text-center role="navigation"
+  .container 
+    .navbar-header
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "••boats••", welcome_index_path , class: "navbar-brand"
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+        li
+          = link_to "La map", boats_path
+        li
+          = link_to "créer", new_boat_path
 

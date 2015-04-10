@@ -25,7 +25,24 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'pg', '~> 0.18.1'
 
-
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-rails-console'
+  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'quiet_assets'
+  gem 'rails_layout'
+  gem 'rb-fchange', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-inotify', require: false
+  gem 'railroady'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,6 +1,5 @@
 class BoatsController < ApplicationController
 
-
   respond_to :html
   def index
     @boats = Boat.all
@@ -9,19 +8,19 @@ class BoatsController < ApplicationController
       marker.lng boat.longitude
       marker.infowindow boat.description
       marker.title   boat.title
-
     end
   end
+
   def show
     @boat = Boat.find(params[:id])
   end
+
   def new
     @boat = Boat.new
   end
 
   def create
     @boat = Boat.new(boat_params)
-
     @boat.save
     redirect_to boat_path(@boat)
   end

@@ -23,8 +23,7 @@ gem 'twitter-bootstrap-rails'
 gem "paperclip", "~> 3.1"
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'json_pure', '~> 1.8.2'
-gem 'json', '1.8.0'
+gem 'pg', '~> 0.18.1'
 
 
 

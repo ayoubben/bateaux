@@ -3,12 +3,7 @@ class BoatsController < ApplicationController
   respond_to :html
   def index
     @boats = Boat.all
-    @hash = Gmaps4rails.build_markers(@boats) do |boat, marker|
-      marker.lat boat.latitude
-      marker.lng boat.longitude
-      marker.infowindow boat.description
-      marker.title   boat.title
-    end
+    @blabla = "blabla"
   end
 
   def show

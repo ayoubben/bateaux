@@ -1,26 +1,23 @@
 .col-md-8
-  p
-    strong ID:
-    = @boat.id
-  p
-    strong Title:
-    = @boat.title
-  p
-    strong Descrition:
-    = @boat.description
-  p
-    strong adress:
-    = @boat.adress
-  p
-    strong longitude:
-    = @boat.longitude
-  p
-    strong latitude:
-    = @boat.latitude
-  p
-    Strong photo
-    - if !(@boat.photo_file_name.nil?)
-      = image_tag @boat.photo.url(:medium)
+  .row
+    .col-md-2
+      - if !(@boat.photo_file_name.nil?)
+        = image_tag @boat.photo.url(:thumb) ,class: "img-circle"
+    .col-md-10
+      address
+        strong = @boat.title
+        br
+        = @boat.adress
+        br
+        abbr title="Phone"
+        ="#{@boat.longitude} , #{@boat.latitude}"
+
+  .row
+    .col-md-12
+      strong Descrition:
+      = @boat.description
+
+
 .col-md-4
   div
   #map style=(" height: 400px;")

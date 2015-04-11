@@ -18,7 +18,7 @@
     .form-group
     label for="validate-text"  = f.label :adress
     .input-group
-      = f.text_field :adress,class: "form-control"
+      = f.text_field :adress,class: "form-control", id: "address"
       span.input-group-addon.primary
         span.fa.fa-adn
 
@@ -29,3 +29,11 @@
     .form-group
       = f.submit  'Valider', :class => 'btn btn-success'
 .col-md-4
+
+javascript:
+  var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
+
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace();
+      console.log(place.address_components);
+  });

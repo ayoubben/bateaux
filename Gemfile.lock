@@ -127,6 +127,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.1-x86-mingw32)
     pry (0.10.1-x86-mingw32)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -252,6 +253,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 3.1)
+  pg (~> 0.18.1)
   quiet_assets
   railroady
   rails (= 4.1.7)

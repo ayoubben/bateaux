@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 #added gem
+gem 'rails_12factor'
 gem 'slim', '~> 2.0.3'
 gem 'slim-rails', '~> 2.1.5'
 gem 'simple_form'

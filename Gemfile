@@ -22,6 +22,7 @@ gem 'twitter-bootstrap-rails'
 gem "paperclip", "~> 3.1"
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'pg', '~> 0.18.1'
 
 group :development do
   gem 'better_errors'

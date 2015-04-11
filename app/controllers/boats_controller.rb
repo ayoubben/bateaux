@@ -2,28 +2,21 @@ class BoatsController < ApplicationController
 
   respond_to :html
   def index
-    @boats = Boat.all
-    @blabla = "blabla"
   end
 
   def show
-    @boat = Boat.find(params[:id])
-    @hash = Gmaps4rails.build_markers(@boat) do |boat, marker|
-      marker.lat boat.latitude
-      marker.lng boat.longitude
-      marker.infowindow boat.description
-      marker.title   boat.title
-    end
+
   end
 
   def new
+    @boats = Boat.all
     @boat = Boat.new
   end
 
   def create
     @boat = Boat.new(boat_params)
     @boat.save
-    redirect_to boat_path(@boat)
+    redirect_to new_boat_path
   end
 
   private

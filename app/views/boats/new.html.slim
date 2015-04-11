@@ -1,4 +1,10 @@
-.col-md-8
+
+.col-md-6
+  p
+    strong
+      h3.text-danger
+        | Create new boat
+  hr
   = form_for :boat,url: boats_path do |f|
 
     .form-group
@@ -26,14 +32,85 @@
     label for="validate-text"  = f.label :photo
     .input-group
       = f.file_field :photo,class: "form-control"
-    .form-group
-      = f.submit  'Valider', :class => 'btn btn-success'
-.col-md-4
+
+    p
+      .form-group
+        = f.submit  'Valider', :class => 'btn btn-success'
+.col-md-6
+  p
+    strong
+      h3.text-danger
+        | Map of boats
+
+  hr
+  #default style=("width: 100%; height: 400px;")
+.col-md-12
+  p
+    strong
+      h3.text-danger
+        | Table of boats
+
+.col-md-12
+  table.table.table-striped
+    thead
+      tr
+        th photo
+        th titre
+        th description
+        th Address
+    tbody
+      - @boats.each do |boat|
+        tr
+          td
+            = image_tag boat.photo.url(:thumb) ,class: "img-thumbnail"
+          td
+            = boat.title
+          td
+            = boat.description
+          td
+            = boat.adress
+
 
 javascript:
-  var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      var place = autocomplete.getPlace();
-      console.log(place.address_components);
-  });
+  var locations =  #{raw  @boats.to_json}
+
+
+
+    function initialize() {
+      var myOptions = {
+        center: new google.maps.LatLng(33.890542, 151.274856),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("default"),
+          myOptions);
+      setMarkers(map,locations)
+    }
+    function setMarkers(map,locations){
+    var marker, i
+    for (i = 0; i < locations.length; i++)
+     {
+     var loan = locations[i].title
+     var lat = locations[i].latitude
+     var long = locations[i].longitude
+     var add =  locations[i].adress
+
+
+
+
+     latlngset = new google.maps.LatLng(lat, long);
+      var marker = new google.maps.Marker({
+              map: map, title: loan , position: latlngset
+            });
+            map.setCenter(marker.getPosition())
+            var content = "<h2>" + add +"<small> "+loan+"</small></h2>"
+      var infowindow = new google.maps.InfoWindow()
+    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+            return function() {
+               infowindow.setContent(content);
+               infowindow.open(map,marker);
+            };
+        })(marker,content,infowindow));
+      }
+    }

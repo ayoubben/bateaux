@@ -23,9 +23,9 @@ gem 'twitter-bootstrap-rails'
 gem "paperclip", "~> 3.1"
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'pg', '~> 0.18.1'
 
-group :development, :production do
+group :development, :production, :test do
+  gem 'pg', '~> 0.18.1'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capistrano', '~> 3.0.1'

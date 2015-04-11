@@ -24,7 +24,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'pg', '~> 0.18.1'
 
-group :development do
+group :development, :production do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capistrano', '~> 3.0.1'
